@@ -1,0 +1,12 @@
+button {
+    background-color: blue;
+    color: white;
+    border-radius: 12px;
+    font-size: 24px;
+    margin: 50%;
+}
+
+button:hover {
+    background-color: #00008B;
+    color: white;
+}
