@@ -1,12 +1,65 @@
-<!doctype html>
-<html>
-<head>
-    <title>Fantasy World Creater</title>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Derek & Jon's Map Generator Home Page</title>
     <link rel="stylesheet" href="project.css">
-</head>
-</body>
-    <div>
-        <button type="button" >Create World</button>
+  </head>
+  <body>
+    <div id="left">
+        
+    <table>
+        <tr>
+            <button id="button">Cretae world</button>
+            <p id="output"></p>
+        </tr>
+
+        <td>
+            <label for="size">size of map</label>
+            <select id="size" name="size">
+                <option value="world">world</option>
+                <option value="country">country</option>
+                <option value="kingdom">kingdom</option>
+            </select>
+        </td>
+        <td>
+            <label for="random1">random1</label>
+            <select id="random1" name="random1">
+                <option value="option1">option1</option>
+                <option value="option2">option2</option>
+                <option value="option3">option3</option>
+            </select>
+        </td>
+        <td>
+            <label for="random2">random2</label>
+            <select id="random2" name="random2">
+                <option value="option1">option1</option>
+                <option value="option2">option2</option>
+                <option value="option3">option3</option>
+            </select>
+        </td>
+        <td>
+            <label for="random3">random3</label>
+            <select id="random3" name="random3">
+                <option value="option1">option1</option>
+                <option value="option2">option2</option>
+                <option value="option3">option3</option>
+            </select>
+        </td>
+
+    </table>
+    
     </div>
-</body>
+
+    <div id="WorldImage">
+        
+            <image src="Whitescreen.PNG" alt="WorldCreated" id="WorldCreated" width="780" height="600"></image>
+            <button id="Reg">Reg</button>
+            <button id="Bio">Bio</button>
+        
+    </div>
+
+    <script src="index.js"></script>
+  </body>
 </html>

@@ -3,10 +3,44 @@ button {
     color: white;
     border-radius: 12px;
     font-size: 24px;
-    margin: 50%;
+   
 }
 
 button:hover {
     background-color: #00008B;
     color: white;
+}
+
+body {
+    background-color: blue;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+
+}
+div {
+    float:left;
+    width: 23%;
+    height: 600px;
+    padding: 0 10px;
+}
+
+#WorldImage {
+    background-color: blue;
+    width: 800px;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    position: absolute;
+
+}
+#left {
+    background-color: blue;
+    float: left;
+    width: 450px;
+}
+
+#WorldCreated{
+    border: 5px solid black;
+
 }
