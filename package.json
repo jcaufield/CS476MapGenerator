@@ -8,6 +8,7 @@
     "start": "webpack-dev-server --open --port 8080"
   },
   "dependencies": {
+    "d3": "^6.2.0",
     "delaunator": "^4.0.1",
     "webpack": "^4.36.1"
   },

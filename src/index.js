@@ -1,11 +1,12 @@
-import {points, Delaunate} from './delaunay/delaunay'
+import { formatPrefix } from 'd3';
+import {points, Delaunate} from './delaunay/delaunay';
+import { ExampleVoronoi, chart } from './voronoi/voronoiExample';
 
 const button = document.getElementById("button");
 const output = document.getElementById("output");
 
 button.addEventListener("click", () => {
-  //output.innerText = "Thanks! ^.^";
-  var delaunayObject = Delaunate(points);
+  /*var delaunayObject = Delaunate(points);
   var outputString = 'Points Supplied: [' + points[0] +']';
   
 
@@ -26,5 +27,6 @@ button.addEventListener("click", () => {
     outputString += (', [' + points[delaunayObject.triangles[i+2]] + ']');
   }
 
-  output.innerText = outputString;
+  output.innerText = outputString;*/
+  ExampleVoronoi(0);
 });
