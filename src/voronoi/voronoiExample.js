@@ -1,6 +1,6 @@
-import * as d3 from 'd3';
+//import * as d3 from 'd3';
 
-export function ExampleVoronoi(i){
+function ExampleVoronoi(i){
     
     // dimensions of canvas (internal; box size is controlled by MapGen.css)
     const height = 600;
