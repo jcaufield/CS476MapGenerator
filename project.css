@@ -20,14 +20,15 @@ body {
 }
 div {
     float:left;
-    width: 23%;
+    width: 20%;
     height: 600px;
     padding: 0 10px;
 }
 
 #WorldImage {
     background-color: blue;
-    width: 800px;
+    width: 1000px;
+    height: 800px;
     bottom: 0;
     top: 0;
     right: 0;
