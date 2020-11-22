@@ -12,7 +12,7 @@ const width = 600;
 const height = 400;
 
 
-// BOILER PLATE START
+// *** BOILER PLATE START ***
 // padding around the chart where axes will go
 const padding = {
   top: 20,
@@ -50,47 +50,6 @@ const g = svg.append('g')
   .attr('transform', `translate(${padding.left} ${padding.top})`);
 
 //BOILER PLATE END
-
-/*// add in axis groups
-const xAxisG = g.append('g').classed('x-axis', true)
-  .attr('transform', `translate(0 ${plotAreaHeight + pointRadius})`);
-
-// x-axis label
-g.append('text')
-  .attr('transform', `translate(${plotAreaWidth / 2} ${plotAreaHeight + (padding.bottom)})`)
-  .attr('dy', -4) // adjust distance from the bottom edge
-  .attr('class', 'axis-label')
-  .attr('text-anchor', 'middle')
-  .text('X Axis');
-
-const yAxisG = g.append('g').classed('y-axis', true)
-  .attr('transform', `translate(${-pointRadius} 0)`);
-
-// y-axis label
-g.append('text')
-  .attr('transform', `rotate(270) translate(${-plotAreaHeight / 2} ${-padding.left})`)
-  .attr('dy', 12) // adjust distance from the left edge
-  .attr('class', 'axis-label')
-  .attr('text-anchor', 'middle')
-  .text('Y Axis');
-
-// set up axis generating functions
-const xTicks = Math.round(plotAreaWidth / 50);
-const yTicks = Math.round(plotAreaHeight / 50);
-
-const xAxis = d3.axisBottom(xScale)
-  .ticks(xTicks)
-  .tickSizeOuter(0);
-
-const yAxis = d3
-  .axisLeft(yScale)
-  .ticks(yTicks)
-  .tickSizeOuter(0);
-
-// draw the axes
-yAxisG.call(yAxis);
-xAxisG.call(xAxis);*/
-
 
 // draws points
 /*const circles = g.append('g').attr('class', 'circles');
