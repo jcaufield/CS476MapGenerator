@@ -26,5 +26,11 @@ worldButton.addEventListener("click", () => {
   }
 
   output.innerText = outputString;*/
-  ExampleVoronoi(0);
+  /*const height = 600;
+  const width = 600;
+  const points = Array.from({length: 200}, () => [Math.random() * width, Math.random() * height]);
+  ExampleVoronoi(0, points);
+  ExampleVoronoi(12, points); */
+
+  voronoiExample();
 });

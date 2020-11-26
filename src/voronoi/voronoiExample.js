@@ -1,80 +1,144 @@
-//import * as d3 from 'd3';
+function voronoiExample() {
 
-function ExampleVoronoi(i){
-    
-    // dimensions of canvas (internal; box size is controlled by MapGen.css)
-    const height = 600;
-    const width = 600;
+  // generate random data for 500 points
+  const data = d3.range(500).map((d, i) => ({
+  x: Math.random(),
+  y: Math.random(),
+  id: i,
+  label: `Point ${i}`}));
 
-    // points -> delauney triangles -> voronoi object
-    const points = Array.from({length: 200}, () => [Math.random() * width, Math.random() * height]);
-
-    const delaunay = d3.Delaunay.from(points);
-    const voronoi = delaunay.voronoi([0.5, 0.5, width - 0.5, height - 0.5]); // study api, this call is straight from the example page
-
-    // Building the canvas
-
-    var x = document.createElement("canvas");
-    var context = x.getContext("2d");
-
-    const path = d3.geoPath(null, context).pointRadius(2.5);
-
-    context.clearRect(0, 0, width, height);
-
-    // render start
-    if (i >= 0) {
-
-      context.fillStyle = "#0f0";
-      context.beginPath();
-      voronoi.renderCell(i, context);
-      context.fill();
-
-      //calculate neighbours
-
-      const V = [...voronoi.neighbors(i)];
-      const D = [...delaunay.neighbors(i)];
-      const U = D.filter(j => !V.includes(j));
+  // outer svg dimensions
+const width = 600;
+const height = 400;
 
 
-      //yellow for delauney neighbours that aren't voronoi neighbours
-      context.fillStyle = "#ff0";
-      context.beginPath();
-      for (const j of U) voronoi.renderCell(j, context);
-      context.fill();
+// *** BOILER PLATE START ***
+// padding around the chart where axes will go
+const padding = {
+  top: 20,
+  right: 20,
+  bottom: 40,
+  left: 50,
+};
 
-      //green for Voronoi neighbours
-      context.fillStyle = "#cfc";
-      context.beginPath();
-      for (const j of V) voronoi.renderCell(j, context);
-      context.fill();
+// inner chart dimensions, where the dots are plotted
+const plotAreaWidth = width - padding.left - padding.right;
+const plotAreaHeight = height - padding.top - padding.bottom;
 
-      // connects the dots between the chosen point and D neighbours
-      context.beginPath();
-      for (const j of D) {
-        context.moveTo(...points[i]);
-        context.lineTo(...points[j]);
-      }
-      context.strokeStyle = "#000";
-      context.stroke();
+// radius of points in the scatterplot
+const pointRadius = 3;
 
-      context.strokeStyle = "#000";
+// initialize scales
+const xScale = d3.scaleLinear().domain([0, 1]).range([0, plotAreaWidth]);
+const yScale = d3.scaleLinear().domain([0, 1]).range([plotAreaHeight, 0]);
+const colorScale = d3.scaleLinear().domain([0, 1]).range(['#06a', '#0bb']);
 
-      context.beginPath();
-      voronoi.render(context); //draw Voronoi shapes - would likely omit in project
-      voronoi.renderBounds(context); //draws frame
-      context.stroke();
+// select and clear the root container where the chart will be added
 
-      //draws points
-      context.fillStyle = "#000";
-      context.beginPath();
-      path({type: "MultiPoint", coordinates: points});
-      context.fill();
+let containerRef = document.getElementById('world-output');
+containerRef.innerHTML = "";
+
+const container = d3.select('#world-output');
+
+// initialize main SVG
+const svg = container.append('svg')
+  .attr('width', width)
+  .attr('height', height);
+
+// the main g where all the chart content goes inside
+const g = svg.append('g')
+  .attr('transform', `translate(${padding.left} ${padding.top})`);
+
+//BOILER PLATE END
+
+// draws points
+/*const circles = g.append('g').attr('class', 'circles');
+
+const binding = circles.selectAll('.data-point').data(data, d => d.id);
+
+binding.enter().append('circle')
+  .classed('data-point', true)
+  .attr('r', pointRadius)
+  .attr('cx', d => xScale(d.x))
+  .attr('cy', d => yScale(d.y))
+  .attr('fill', d => colorScale(d.y));
+  */
+
+// draw delauney diagram
+const delauney = d3.Delaunay.from(data, d => xScale(d.x), d => yScale(d.y)); // .from(points, fx, fy)
+const voronoi = delauney.voronoi([0, 0, plotAreaWidth, plotAreaHeight]); // .voronoi([xmin, ymin, xmax, ymax])
+
+//console.log(voronoi.render()); // the path string attached to the d attribute below
+
+g.append('path')
+.attr('d', delauney.renderPoints(null, 1))
+.attr('stroke', 'green');
+
+// build the path tag for the voronoi cells
+g.append('path')
+.attr('d', voronoi.render())
+.attr('stroke-width', 1)
+.attr('stroke', 'red');
+
+//coloring cell closest to center
+let midIndex = delauney.find(plotAreaWidth/2, plotAreaHeight/2);
+g.append('path')
+.attr('d', voronoi.renderCell(midIndex))
+.attr('stroke', 'purple')
+.attr('fill', 'blue');
+
+//SIMPLE CIRCLE EXAMPLE
+g.append('circle')
+.attr('cx', xScale(data[midIndex].x))
+.attr('cy', yScale(data[midIndex].y))
+.attr('r', 3)
+.attr('stroke', 'black');
+
+// coloring arbitrary cell & corresponding input dot: 5
+g.append('path')
+.attr('d', voronoi.renderCell(5))
+.attr('stroke', 'blue')
+.attr('fill', 'red');
+
+//console.log('M' + xScale(data[5].x) + ',' + yScale(data[5].y));
+g.append('circle')
+.attr('cx', xScale(data[5].x))
+.attr('cy', yScale(data[5].y))
+.attr('r', 3)
+.attr('stroke', 'black');
+
+//coloring neighbours and superneighbours for cell 5
+let neighbors = voronoi.neighbors(5);
+let neighborhood = []; 
+for (const i of neighbors)
+  {
+    let newNeighbors = voronoi.neighbors(i);
+    for (const j of newNeighbors)
+    {
+      neighborhood.push(j);
     }
+  }
 
-  /*context.canvas.ontouchmove = 
-  context.canvas.onmousemove = event => {
-    render(delaunay.find(event.layerX, event.layerY));
-  };*/
+// console.log('neighborhood: ', neighborhood); // examine this, you see i'm just working with cell indeces here
 
-  document.body.appendChild(x); // makes the canvas appear
+for (const k of neighborhood)
+{
+  g.append('path')
+  .attr('d', voronoi.renderCell(k))
+  .attr('stroke', 'blue')
+  .attr('fill', 'orange');
+
+  g.append('circle')
+  .attr('cx', xScale(data[k].x))
+  .attr('cy', yScale(data[k].y))
+  .attr('r', 1)
+  .attr('stroke', 'black');
+}
+
+// coloring arbitrary cell & corresponding input dot: 5, again, so it shows up
+g.append('path')
+.attr('d', voronoi.renderCell(5))
+.attr('stroke', 'blue')
+.attr('fill', 'red');
+
 }
