@@ -17,10 +17,15 @@
         </tr>
 
         <tr>
+            <label for="Seed">Enter seed if you have one </label>
+            <input type="number" id="Seed">
+        </tr>
+
+        <tr>
             <td>
                 <label for="type">Type of map</label>
                 <select id="type1" name="type1">
-                    <option value="random">Random</option>
+                    <option value="Random">Random</option>
                     <option value="world">world</option>
                     <option value="country">country</option>
                     <option value="kingdom">kingdom</option>
@@ -32,7 +37,7 @@
             <td>
                 <label for="Regional">Regional amount</label>
                 <select id="Regional1" name="Regional1">
-                    <option value="random">Random</option>
+                    <option value="Random">Random</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
@@ -47,7 +52,7 @@
             <td>
                 <label for="water">Water level</label>
                 <select id="water1" name="water1">
-                    <option value="random">Random</option>
+                    <option value="Random">Random</option>
                     <option value="none">none</option>
                     <option value="alittle">a little</option>
                     <option value="moderate">moderate</option>
@@ -64,9 +69,17 @@
             <image src="Whitescreen.PNG" alt="WorldCreated" id="WorldCreated" width="780" height="600"></image><br>
             <button id="Reg">Reg</button>
             <button id="Bio">Bio</button>
+
         
     </div>
 
+
+    <script src="./src/assert/countries.js"></script>
+    <script src="./src/assert/provinces.js"></script>
+    <script src="./src/assert/citiesPrefix.js"></script>
+    <script src="./src/assert/citiesSuffix.js"></script>
+    <script src="GenerateName.js"></script>
     <script src="index.js"></script>
+
   </body>
 </html>
