@@ -7,23 +7,12 @@ function voronoiExample() {
   id: i,
   label: `Point ${i}`}));
 
-  // outer svg dimensions
-const width = 600;
-const height = 400;
-
 
 // *** BOILER PLATE START ***
-// padding around the chart where axes will go
-const padding = {
-  top: 20,
-  right: 20,
-  bottom: 40,
-  left: 50,
-};
 
 // inner chart dimensions, where the dots are plotted
-const plotAreaWidth = width - padding.left - padding.right;
-const plotAreaHeight = height - padding.top - padding.bottom;
+const plotAreaWidth = 780;
+const plotAreaHeight = 600;
 
 // radius of points in the scatterplot
 const pointRadius = 3;
@@ -35,19 +24,13 @@ const colorScale = d3.scaleLinear().domain([0, 1]).range(['#06a', '#0bb']);
 
 // select and clear the root container where the chart will be added
 
-let containerRef = document.getElementById('world-output');
+let containerRef = document.getElementById('WorldCreated');
 containerRef.innerHTML = "";
 
-const container = d3.select('#world-output');
-
 // initialize main SVG
-const svg = container.append('svg')
-  .attr('width', width)
-  .attr('height', height);
-
+const svg = d3.select('#WorldCreated');
 // the main g where all the chart content goes inside
-const g = svg.append('g')
-  .attr('transform', `translate(${padding.left} ${padding.top})`);
+const g = svg.append('g');
 
 //BOILER PLATE END
 

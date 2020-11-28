@@ -3,9 +3,6 @@ const output = document.getElementById("output");
 
 button.addEventListener("click", function() {
 
-
- 
-
   // getting the values from html and checking if the user entered a seed number.
     var seed = document.getElementById('Seed').value;
 
@@ -97,13 +94,16 @@ button.addEventListener("click", function() {
         water = 3;
       }
 
-
-
-
       output.innerText = seed + " " + type + " " + reg + " " + water;
 
     }
 
   });
+
+const regButton = document.getElementById('Reg');
+regButton.addEventListener('click', function() {
+  voronoiExample();
+});
+
 
   
