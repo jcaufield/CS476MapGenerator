@@ -101,11 +101,19 @@ button.addEventListener("click", function() {
   });
 
 const regButton = document.getElementById('Reg');
-let svgAPI = new SVGAdapter('WorldCreated');
+const bioButton = document.getElementById('Bio');
+const svgAPI = new SVGAdapter('WorldCreated');
+const points = [{x: 40, y: 20},{x: 100, y: 80},{x: 80, y: 100}];
 regButton.addEventListener('click', function() {
-  //voronoiExample();
   svgAPI.cover('red');
+  svgAPI.path(points, 'orange');
+
+  svgAPI.pointText(points[0], 'FIRST!');
 });
+
+bioButton.addEventListener('click', function(){
+  svgAPI.clear();
+})
 
 
   

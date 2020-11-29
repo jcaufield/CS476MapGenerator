@@ -22,5 +22,41 @@ class SVGAdapter {
             .attr('d', pathString)
             .attr('fill', color);
     }
+
+    path (points, color){
+        if(points.length < 3)
+        {
+            return;
+        }
+
+        let pathString = `M${points[0].x},${points[0].y}`;
+
+        for (var i = 1; i < points.length; i++)
+        {
+            pathString += `L${points[i].x},${points[i].y}`;
+        }
+        pathString += 'Z';
+
+        this.g.append('path')
+            .attr('d', pathString)
+            .attr('stroke', 'black')
+            .attr('stroke-width', 3)
+            .attr('fill', color);
+    }
     
+    pointText (point, text){
+        this.g.append('circle')
+            .attr('cx', point.x)
+            .attr('cy', point.y)
+            .attr('r', 3);
+
+        this.g.append('text')
+            .attr('x', point.x - 5)
+            .attr('y', point.y - 8)
+            .text(text);
+    }
+
+    clear(){
+        this.g.selectAll("*").remove();
+    }
 }
