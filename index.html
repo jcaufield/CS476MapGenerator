@@ -12,7 +12,7 @@
     <table>
         <tr>
             <button id="button">Create world</button>
-            <a href="src/tester.html">Canvas testing</a>
+           <!-- <a href="src/tester.html">Canvas testing</a>-->
             <p id="output"></p>
         </tr>
 
@@ -66,21 +66,28 @@
 
     <div id="WorldImage">
         
-            <image src="whitescreen.PNG" alt="WorldCreated" id="WorldCreated" width="780" height="600"></image><br>
+            <svg id="WorldCreated" width="780" height="600"></svg>
+            <br/>
             <button id="Reg">Reg</button>
             <button id="Bio">Bio</button>
 
         
     </div>
 
-
-    <script src="./src/assert/countries.js"></script>
-    <script src="./src/assert/provinces.js"></script>
-    <script src="./src/assert/citiesPrefix.js"></script>
-    <script src="./src/assert/citiesSuffix.js"></script>
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="./src/SVGAdapter/SVGAdapter.js"></script>
+    <script src="./src/renderWorld/renderWorld.js"></script>
+    <script src="./src/renderWorld/utilities.js"></script>
+    <script src="./src/renderWorld/settings.js"></script>
+    <script src="./src/renderWorld/GrahamScan.js"></script>
+    <script src="./src/assets/countries.js"></script>
+    <script src="./src/assets/provinces.js"></script>
+    <script src="./src/assets/citiesPrefix.js"></script>
+    <script src="./src/assets/citiesSuffix.js"></script>
     <script src="GenerateName.js"></script>
     <script src="xyVal.js"></script>
     <script src="index.js"></script>
 
+    <script src="./src/voronoi/voronoiExample.js"></script>
   </body>
 </html>

@@ -3,9 +3,6 @@ const output = document.getElementById("output");
 
 button.addEventListener("click", function() {
 
-
- 
-
   // getting the values from html and checking if the user entered a seed number.
     var seed = document.getElementById('Seed').value;
 
@@ -119,6 +116,7 @@ button.addEventListener("click", function() {
         water = 3;
       }
 
+<<<<<<< HEAD
 
       // turn seed into point values
       
@@ -128,11 +126,27 @@ button.addEventListener("click", function() {
 
 
       output.innerText = seed + " " + type + " " + reg + " " + water + arrNames[0];
+=======
+      output.innerText = seed + " " + type + " " + reg + " " + water;
+>>>>>>> 2afda24c3054e33dc33d6580c12ca17b3970aa19
 
     }
 
 
 
   });
+
+const regButton = document.getElementById('Reg');
+const bioButton = document.getElementById('Bio');
+const svgAPI = new SVGAdapter('WorldCreated');
+regButton.addEventListener('click', function() {
+  const data = d3.range(250).map(() => ({
+    x: Math.random(),
+    y: Math.random()
+  }));
+
+  renderWorld(data, 3, ["TarryNot", "Devonsland", "JimJiminy", "404Land_Not_Found", "Atol", "Xiphactinus"]); // 
+});
+
 
   
