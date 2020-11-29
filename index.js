@@ -156,7 +156,7 @@ regButton.addEventListener('click', function() {
     y: Math.random()
   }));
 
-  renderWorld(data, 3, ["TarryNot", "Devonsland", "JimJiminy", "404Land_Not_Found"]); // , "Atol" , "Xiphactinus"
+  renderWorld(data, 3, ["TarryNot", "Devonsland", "JimJiminy", "404Land_Not_Found", "Atol" , "Xiphactinus"]); // 
 });
 
 
