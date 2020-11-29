@@ -56,26 +56,24 @@ h4 {
     position: absolute;
     top: 0;
     right: 0;
-    height: fit-content;
+    height: 165px;
     width: 200px;
 }
 
 #regionNames{
     padding: 0;
-    height: fit-content;
+    height: 125px;
     width: inherit
 }
 
 .Name{
     height: 20px;
-    width: fit-content;
     padding-left: 0;
     float: left;
 }
 
 .colorSquare{
     border: 1px solid black;
-    /*background-color: #e78ac3;*/
     width: 10px;
     height: 10px;
     float: left;
@@ -84,7 +82,7 @@ h4 {
 }
 
 .Entry{
-    height: fit-content;
+    height: 20px;
     width: 100%;
     padding: 0
 }

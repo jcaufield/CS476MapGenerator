@@ -4,9 +4,18 @@ function renderWorld(data, waterType, names) {
     //prep data
     const xScale = d3.scaleLinear().domain([0, 1]).range([0, svgAPI.width]);
     const yScale = d3.scaleLinear().domain([0, 1]).range([svgAPI.height, 0]);
-    const points = data.map((d) => {
+    let points = data.map((d) => {
         return {x: parseFloat(xScale(d.x)), y: parseFloat(yScale(d.y))};
     })
+
+    if (waterType < 2)
+    {
+        points = points.slice(0, pointCount[0]);
+    }
+    else if (waterType == 2)
+    {
+        points = points.slice(0, pointCount[1]);
+    }
 
     //get Legend Ref
     const legendNames = d3.select('#regionNames');
@@ -79,6 +88,22 @@ function renderWorld(data, waterType, names) {
         entry.append('div')
             .attr('class', 'Name')
             .text(names[i]);
+        
+        legendNames.append('br');
+    }
+
+    if (waterType == 0)
+    {
+        //place last line in legend
+        const entry = legendNames.append('div')
+            .attr('class', 'Entry');
+
+        entry.append('div')
+            .attr('class', 'colorSquare')
+            .attr('style', `background-color:#787d79;`);
+        entry.append('div')
+            .attr('class', 'Name')
+            .text('Unaffiliated');
         
         legendNames.append('br');
     }
