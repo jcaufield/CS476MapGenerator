@@ -104,7 +104,7 @@ const regButton = document.getElementById('Reg');
 const bioButton = document.getElementById('Bio');
 const svgAPI = new SVGAdapter('WorldCreated');
 regButton.addEventListener('click', function() {
-  const data = d3.range(500).map(() => ({
+  const data = d3.range(250).map(() => ({
     x: Math.random(),
     y: Math.random()
   }));

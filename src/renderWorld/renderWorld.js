@@ -45,7 +45,7 @@ function renderWorld(data, waterType, names) {
         //find the region's extent (neighbours of neighbours)
         let activeCells = getExtent(start, voronoi);
         
-        //find the regions's 
+        //find the region's polygon points
         let pointStack = [];
         for (const cell of activeCells)
         {
@@ -56,14 +56,17 @@ function renderWorld(data, waterType, names) {
             }
         }
 
-        for (const point of pointStack)
-        {
-            svgAPI.pointText(point, '');
-        }
+        //remove duplicate points
+        pointStack = uniquePoints(pointStack);
+
+        //calculate the convex hull
+        let hullPath = GrahamScan(pointStack);
+
+        //fill in the area
+        svgAPI.path(hullPath, colors[i]);
 
         //place name
         svgAPI.text(points[start], names[i]);
     }
-
     
 }

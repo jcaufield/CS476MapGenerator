@@ -1,5 +1,5 @@
-function cross(x1,y1,x2,y2){
-    return x1*y2 - x2*y1;
+function cross(a,b,intersect){
+    return (a.x-intersect.x)*(b.y-intersect.y)-(a.y-intersect.y)*(b.x-intersect.x);
 }
 
 function uniqueInts(arr) {
