@@ -74,7 +74,8 @@ function renderWorld(data, waterType, names) {
             .attr('class', 'Entry');
 
         entry.append('div')
-            .attr('class', 'colorSquare');
+            .attr('class', 'colorSquare')
+            .attr('style', `background-color:${colors[i]};`);
         entry.append('div')
             .attr('class', 'Name')
             .text(names[i]);

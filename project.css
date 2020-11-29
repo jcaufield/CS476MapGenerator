@@ -75,7 +75,7 @@ h4 {
 
 .colorSquare{
     border: 1px solid black;
-    background-color: #e78ac3;
+    /*background-color: #e78ac3;*/
     width: 10px;
     height: 10px;
     float: left;
