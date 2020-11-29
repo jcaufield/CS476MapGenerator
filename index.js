@@ -103,17 +103,14 @@ button.addEventListener("click", function() {
 const regButton = document.getElementById('Reg');
 const bioButton = document.getElementById('Bio');
 const svgAPI = new SVGAdapter('WorldCreated');
-const points = [{x: 40, y: 20},{x: 100, y: 80},{x: 80, y: 100}];
 regButton.addEventListener('click', function() {
-  svgAPI.cover('red');
-  svgAPI.path(points, 'orange');
+  const data = d3.range(500).map(() => ({
+    x: Math.random(),
+    y: Math.random()
+  }));
 
-  svgAPI.pointText(points[0], 'FIRST!');
+  renderWorld(data, 3, ["TarryNot", "Devonsland", "JimJiminy", "404Land_Not_Found"]); // "Atol", "Xiphactinus"
 });
-
-bioButton.addEventListener('click', function(){
-  svgAPI.clear();
-})
 
 
   
