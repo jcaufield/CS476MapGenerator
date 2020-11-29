@@ -25,6 +25,10 @@ div {
     padding: 0 10px;
 }
 
+h4 {
+    margin-bottom: 2px;
+}
+
 #WorldImage {
     background-color: blue;
     width: 900px;
@@ -44,4 +48,40 @@ div {
 #WorldCreated{
     border: 5px solid black;
     background-color:black;
+}
+
+#legend{
+    background-color: white;
+    display: block;
+    height: fit-content;/*200px;*/
+    width: 100px;
+    float: left
+}
+
+#regionNames{
+    padding: 0;
+    height: fit-content;
+    width: inherit
+}
+
+.Name{
+    height: 20px;
+    width: fit-content;
+    padding-left: 0;
+    float: left;
+}
+
+.colorSquare{
+    border: 1px solid black;
+    background-color: #e78ac3;
+    width: 10px;
+    height: 10px;
+    float: left;
+    padding: 0;
+}
+
+.Entry{
+    height: fit-content;
+    width: fit-content;
+    padding: 0
 }
