@@ -8,6 +8,10 @@ function renderWorld(data, waterType, names) {
         return {x: parseFloat(xScale(d.x)), y: parseFloat(yScale(d.y))};
     })
 
+    //get Legend Ref
+    const legendNames = d3.select('#regionNames');
+    legendNames.selectAll("*").remove();
+
     //initialize voronoi diagram
     const delauney = d3.Delaunay.from(points, d => d.x, d => d.y); // .from(points, fx, fy)
     const voronoi = delauney.voronoi([0, 0, svgAPI.width, svgAPI.height]); // .voronoi([xmin, ymin, xmax, ymax])
@@ -65,8 +69,17 @@ function renderWorld(data, waterType, names) {
         //fill in the area
         svgAPI.path(hullPath, colors[i]);
 
-        //place name
-        svgAPI.text(points[start], names[i]);
+        //place name in legend
+        const entry = legendNames.append('div')
+            .attr('class', 'Entry');
+
+        entry.append('div')
+            .attr('class', 'colorSquare');
+        entry.append('div')
+            .attr('class', 'Name')
+            .text(names[i]);
+        
+        legendNames.append('br');
     }
     
 }
