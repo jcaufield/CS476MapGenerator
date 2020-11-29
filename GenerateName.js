@@ -71,7 +71,7 @@ class GenerateName {
         for (var i = 0; i < x; i++){
 
             Math.seedrandom(tempS);
-            ranNum = Math.floor((Math.random()*1000) % y);
+            ranNum = Math.floor((Math.random()*1000))% y;
             tempS=tempS*2;
 
 
@@ -80,7 +80,7 @@ class GenerateName {
 
             
             tempArr[ranNum] = '';
-            tempArr = tempArr.filter(tempArr => tempArr != '');
+            tempArr = tempArr.filter(name => name != '');
             y--;
 
         }
@@ -93,7 +93,7 @@ class GenerateName {
 
 }
 
- class CounrtyNames extends GenerateName {
+ class CountryNames extends GenerateName {
 
     getNames(seed) {
 
@@ -109,7 +109,7 @@ class GenerateName {
         for (var i = 0; i < x; i++){
 
             Math.seedrandom(tempS);
-            ranNum = Math.floor((Math.random()*1000) % y);
+            ranNum = Math.floor((Math.random()*1000)) % y;
             tempS=tempS*2;
 
 
@@ -118,7 +118,7 @@ class GenerateName {
 
             
             tempArr[ranNum] = '';
-            tempArr = tempArr.filter(tempArr => tempArr != '');
+            tempArr = tempArr.filter(name => name != '');
             y--;
 
         }
@@ -150,11 +150,11 @@ class GenerateName {
         for (var i = 0; i < x; i++){
 
             Math.seedrandom(tempS);
-            ranNum1 = Math.floor((Math.random()*1000) % y1);
+            ranNum1 = Math.floor((Math.random()*1000)) % y1;
             tempS=tempS*2;
 
             Math.seedrandom(tempS);
-            ranNum2 = Math.floor((Math.random()*1000) % y2);
+            ranNum2 = Math.floor((Math.random()*1000)) % y2;
             tempS=tempS*2;
 
 
@@ -163,12 +163,12 @@ class GenerateName {
 
             
             tempArr1[ranNum1] = '';
-            tempArr1 = tempArr1.filter(tempArr1 => tempArr1 != '');
+            tempArr1 = tempArr1.filter(name => name != '');
             y1--;
             
 
             tempArr2[ranNum2] = '';
-            tempArr2 = tempArr2.filter(tempArr2 => tempArr2 != '');
+            tempArr2 = tempArr2.filter(name => name != '');
             y2--;
 
         }

@@ -5,7 +5,7 @@ button.addEventListener("click", function() {
 
   // getting the values from html and checking if the user entered a seed number.
     var seed = document.getElementById('Seed').value;
-    output.innertext="";
+    output.innertext=" ";
 
 
 
@@ -14,7 +14,7 @@ button.addEventListener("click", function() {
 
         var ts;
     
-        ts = Math.round(Math.floor(Math.random() * 1000000000))
+        ts = (Math.random();
 
         if(ts < 0.1)
         {
