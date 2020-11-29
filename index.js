@@ -28,6 +28,7 @@ button.addEventListener("click", function() {
       var reg = document.getElementById('Regional1').value
       var water = document.getElementById('water1').value
 
+      //grabbing a world value if it was random
       if(type == "Random"){
         var x = Math.random() % 3;
         x = Math.random(x);
@@ -43,12 +44,21 @@ button.addEventListener("click", function() {
       }
 
       //calling class for the generated names
+
+      var arrNames = [];
+
       if(type == "world"){
 
         let worldNam = new WorldNames();
         worldNam.getReg(reg);
         worldNam.getNames();
         reg = worldNam.reg;
+        
+        for(var i=0;i<reg;i++)
+        {
+          arrNames[i] = worldNam.nameArr[i];
+
+        }
 
       }
       else if(type == "country"){
@@ -58,6 +68,12 @@ button.addEventListener("click", function() {
         countryNam.getNames();
         reg = countryNam.reg;
 
+        for(var i=0;i<reg;i++)
+        {
+          arrNames[i] = countryNam.nameArr[i];
+
+        }
+
       }
       else{
 
@@ -65,6 +81,12 @@ button.addEventListener("click", function() {
         kingdomNam.getReg(reg);
         kingdomNam.getNames();
         reg = kingdomNam.reg;
+
+        for(var i=0;i<reg;i++)
+        {
+          arrNames[i] = kingdomNam.nameArr[i];
+
+        }
 
       }
 
@@ -98,11 +120,18 @@ button.addEventListener("click", function() {
       }
 
 
+      // turn seed into point values
+      
+      let z = new xyVal();
+
+     // values need to send type, reg, water, arrNames and z (for xyvalues).
 
 
-      output.innerText = seed + " " + type + " " + reg + " " + water;
+      output.innerText = seed + " " + type + " " + reg + " " + water + arrNames[0];
 
     }
+
+
 
   });
 
