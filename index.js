@@ -118,24 +118,23 @@ button.addEventListener("click", function() {
 
 
       // turn seed into point values
-      
-      let points = new xyVal();
+    var points = [];
 
      // values need to send type, reg, water, arrNames and z (for xyvalues).
     var tempSeed = seed;
     var temp5;
-     for(var i = 0; 1 < 500; i++){
+
+     for(var i = 0; i < 500; i++)
+     {
+      points[i] = new xyVal();
       Math.seedrandom(tempSeed);
       temp5 = Math.random();
-      points.addx(temp5);
+      points[i].addx(temp5);
       tempSeed++;
       Math.seedrandom(tempSeed);
       temp5 = Math.random();
-      points.addy(temp5);
+      points[i].addy(temp5);
       tempSeed++;
-      
-
-
      }
 
 
