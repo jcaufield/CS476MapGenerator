@@ -116,7 +116,6 @@ button.addEventListener("click", function() {
         water = 3;
       }
 
-<<<<<<< HEAD
 
       // turn seed into point values
       
@@ -126,9 +125,6 @@ button.addEventListener("click", function() {
 
 
       output.innerText = seed + " " + type + " " + reg + " " + water + arrNames[0];
-=======
-      output.innerText = seed + " " + type + " " + reg + " " + water;
->>>>>>> 2afda24c3054e33dc33d6580c12ca17b3970aa19
 
     }
 
