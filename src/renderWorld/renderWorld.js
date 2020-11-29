@@ -40,7 +40,7 @@ function renderWorld(data, waterType, names) {
     for (var i = 0; i < names.length; i++)
     {
         //find the region's start point
-        let start = delauney.find((anchors[i].x)*svgAPI.width, (anchors[i].y)*svgAPI.height);
+        let start = delauney.find((anchors[names.length - 2][i].x)*svgAPI.width, (anchors[names.length - 2][i].y)*svgAPI.height);
 
         //find the region's extent (neighbours of neighbours)
         let activeCells = getExtent(start, voronoi);
