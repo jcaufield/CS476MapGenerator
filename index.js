@@ -119,15 +119,27 @@ button.addEventListener("click", function() {
 
       // turn seed into point values
       
-      let z = new xyVal();
+      let points = new xyVal();
 
      // values need to send type, reg, water, arrNames and z (for xyvalues).
+    var tempSeed = seed;
+    var temp5;
+     for(var i = 0; 1 < 500; i++){
+      Math.seedrandom(tempSeed);
+      temp5 = Math.random();
+      points.addx(temp5);
+      tempSeed++;
+      Math.seedrandom(tempSeed);
+      temp5 = Math.random();
+      points.addy(temp5);
+      tempSeed++;
+      
 
-    Math.seedrandom(seed);
 
-    var temp = Math.random();
+     }
 
-      output.innerText =  temp + "  " + arrNames[1];
+
+     renderWorld(points, water, arrNames);
  
 
     }

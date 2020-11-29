@@ -5,10 +5,16 @@ class xyVal{
         this.y=0;
     }
 
-    addValues(w,z){
+    addx(z){
 
-        this.x=w;
+        this.x=z;
+    
+
+    }
+    addy(z){
+
         this.y=z;
+    
 
     }
 
