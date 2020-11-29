@@ -5,6 +5,9 @@ button.addEventListener("click", function() {
 
   // getting the values from html and checking if the user entered a seed number.
     var seed = document.getElementById('Seed').value;
+    output.innertext="";
+
+
 
 
     if(seed == null || seed == ""){
@@ -13,7 +16,7 @@ button.addEventListener("click", function() {
 
     }
 
-    if(seed.toString().length > 9 || seed.toString().length < 9){
+    if(seed.toString().length != 9 ){
 
       output.innerText ="The seed you entered is incorrect, can only be a 9 digit number.";
 
@@ -27,8 +30,8 @@ button.addEventListener("click", function() {
 
       //grabbing a world value if it was random
       if(type == "Random"){
-        var x = Math.random() % 3;
-        x = Math.random(x);
+        var x = Math.floor((Math.random()*100) % 3);
+        type = x;
         if(type == 1){
           type = "world";
         }
