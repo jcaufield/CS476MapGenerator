@@ -85,7 +85,7 @@ class GenerateName {
 
         for (var i = 0; i < x; i++)
         {
-            this.ranNum1[i] = Math.random() % y;
+            this.ranNum1[i] = (Math.random() *100) % y;
         }
 
         
@@ -123,7 +123,7 @@ class GenerateName {
 
         for (var i = 0; i < x; i++)
         {
-            this.ranNum1[i] = Math.random() % y;
+            this.ranNum1[i] = (Math.random() *100) % y;
         }
 
         
@@ -162,7 +162,7 @@ class GenerateName {
 
         for (var i = 0; i < x; i++)
         {
-            this.ranNum1[i] = Math.random() % y;
+            this.ranNum1[i] = (Math.random() *100) % y;
         }
 
         // for suffix
@@ -171,7 +171,7 @@ class GenerateName {
 
         for (var i = 0; i < x; i++)
         {
-            this.ranNum2[i] = Math.random() % y;
+            this.ranNum2[i] = (Math.random() *100) % y;
         }
 
         
