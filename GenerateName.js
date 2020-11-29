@@ -82,7 +82,7 @@ class GenerateName {
 
         for (var i = 0; i < x; i++)
         {
-            this.ranNum[i] = Math.random() % y;
+            this.ranNum1[i] = Math.random() % y;
         }
 
         
