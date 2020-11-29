@@ -11,8 +11,17 @@ button.addEventListener("click", function() {
 
 
     if(seed == null || seed == ""){
+
+        var ts;
     
-        seed = Math.round(Math.floor(Math.random() * 1000000000))
+        ts = Math.round(Math.floor(Math.random() * 1000000000))
+
+        if(ts < 0.1)
+        {
+          ts = ts + 0.1;
+        }
+
+        seed = ts;
 
     }
 

@@ -71,7 +71,7 @@ class GenerateName {
         for (var i = 0; i < x; i++){
 
             Math.seedrandom(tempS);
-            ranNum = Math.floor((Math.random()*100) % y);
+            ranNum = Math.floor((Math.random()*1000) % y);
             tempS=tempS*2;
 
 
@@ -109,12 +109,12 @@ class GenerateName {
         for (var i = 0; i < x; i++){
 
             Math.seedrandom(tempS);
-            ranNum = Math.floor((Math.random()*100) % y);
+            ranNum = Math.floor((Math.random()*1000) % y);
             tempS=tempS*2;
 
 
             temp = tempArr[ranNum];
-            this.nameArr[i] =  temp;
+            this.nameArr[i] = temp;
 
             
             tempArr[ranNum] = '';
@@ -150,11 +150,11 @@ class GenerateName {
         for (var i = 0; i < x; i++){
 
             Math.seedrandom(tempS);
-            ranNum1 = Math.floor((Math.random()*100) % y1);
+            ranNum1 = Math.floor((Math.random()*1000) % y1);
             tempS=tempS*2;
 
             Math.seedrandom(tempS);
-            ranNum2 = Math.floor((Math.random()*100) % y2);
+            ranNum2 = Math.floor((Math.random()*1000) % y2);
             tempS=tempS*2;
 
 
