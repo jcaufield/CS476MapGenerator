@@ -48,7 +48,7 @@ button.addEventListener("click", function() {
 
         let worldNam = new WorldNames();
         worldNam.getReg(reg);
-        worldNam.getNames();
+        worldNam.getNames(seed);
         reg = worldNam.reg;
         
         for(var i=0;i<reg;i++)
@@ -62,7 +62,7 @@ button.addEventListener("click", function() {
 
         let countryNam = new CountryNames();
         countryNam.getReg(reg);
-        countryNam.getNames();
+        countryNam.getNames(seed);
         reg = countryNam.reg;
 
         for(var i=0;i<reg;i++)
@@ -76,7 +76,7 @@ button.addEventListener("click", function() {
 
         let kingdomNam = new KingdomNames();
         kingdomNam.getReg(reg);
-        kingdomNam.getNames();
+        kingdomNam.getNames(seed);
         reg = kingdomNam.reg;
 
         for(var i=0;i<reg;i++)

@@ -58,12 +58,12 @@ class GenerateName {
 
  class WorldNames extends GenerateName {
 
-    getNames() {
+    getNames(seed) {
 
         var x = this.reg;
         var temp;
 
-        this.createRanNum();
+        this.createRanNum(seed);
 
         for (var i = 0; i < x; i++){
 
@@ -78,14 +78,17 @@ class GenerateName {
     }
 
     // creating random numbers for reg names
-    createRanNum(){
+    createRanNum(seed){
 
         var x = this.reg;
         var y = countries.length;
+        var tempS = seed
 
         for (var i = 0; i < x; i++)
         {
-            this.ranNum1[i] = Math.floor((Math.random() *100) % y);
+            Math.seedrandom(tempS);
+            this.ranNum1[i] = Math.floor((Math.random()*100) % y);
+            tempS=tempS*2;
         }
 
         
@@ -98,12 +101,12 @@ class GenerateName {
 
  class CounrtyNames extends GenerateName {
 
-    getNames() {
+    getNames(seed) {
 
         var x = this.reg;
         var temp;
 
-        this.createRanNum();
+        this.createRanNum(seed);
 
         for (var i = 0; i < x; i++){
 
@@ -116,14 +119,17 @@ class GenerateName {
     }
 
     // creating random numbers for reg names
-    createRanNum(){
+    createRanNum(seed){
 
         var x = this.reg;
         var y = provinces.length;
+        var tempS = seed;
 
         for (var i = 0; i < x; i++)
         {
-            this.ranNum1[i] = Math.floor((Math.random() *100) % y);
+            Math.seedrandom(tempS);
+            this.ranNum1[i] = Math.floor((Math.random()*100) % y);
+            tempS=tempS*2;
         }
 
         
@@ -137,12 +143,12 @@ class GenerateName {
 
  class KingdomNames extends GenerateName {
 
-    getNames(){
+    getNames(seed){
 
         var x = this.reg;
         var temp;
 
-        this.createRanNum();
+        this.createRanNum(seed);
 
         for (var i = 0; i < x; i++){
 
@@ -154,24 +160,31 @@ class GenerateName {
     }
 
     // creating random numbers for reg names
-    createRanNum(){
+    createRanNum(seed){
 
         // for prfix
         var x = this.reg;
         var y = citiesPrefix.length;
+        var tempS = seed;
 
         for (var i = 0; i < x; i++)
         {
-            this.ranNum1[i] = Math.floor((Math.random() *100) % y);
+            Math.seedrandom(tempS);
+            this.ranNum1[i] = Math.floor((Math.random()*100) % y);
+            tempS=tempS*2;
         }
 
         // for suffix
+
         var x = this.reg;
         var y = citiesSuffix.length;
+        var tempS = seed;
 
         for (var i = 0; i < x; i++)
         {
-            this.ranNum2[i] = Math.floor((Math.random() *100) % y);
+            Math.seedrandom(tempS);
+            this.ranNum1[i] = Math.floor((Math.random()*100) % y);
+            tempS=tempS*2;
         }
 
         
