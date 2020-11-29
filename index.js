@@ -123,9 +123,11 @@ button.addEventListener("click", function() {
 
      // values need to send type, reg, water, arrNames and z (for xyvalues).
 
-    var temp = Math.seedrandom(seed);
+    Math.seedrandom(seed);
 
-      output.innerText = seed + " " + type + " " + reg + " " + water + arrNames[0] + temp;
+    var temp = Math.random();
+
+      output.innerText =  temp + "  " + arrNames[1];
  
 
     }

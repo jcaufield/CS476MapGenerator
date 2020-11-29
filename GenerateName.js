@@ -18,7 +18,8 @@ class GenerateName {
         {
             this.changeRandom(tempReg);
         }
-        else if(tempReg == "1"){
+
+        if(tempReg == "1"){
             this.reg = 1;
         }
         else if(tempReg == "2"){
@@ -66,8 +67,10 @@ class GenerateName {
 
         for (var i = 0; i < x; i++){
 
-            temp = countries[ranNum1[i]];
+            temp = countries[this.ranNum1[i]];
             this.nameArr[i] =  temp;
+
+
         }
 
         
@@ -104,7 +107,7 @@ class GenerateName {
 
         for (var i = 0; i < x; i++){
 
-            temp = provinces[ranNum1[i]];
+            temp = provinces[this.ranNum1[i]];
             this.nameArr[i] =  temp;
         }
 
@@ -143,7 +146,7 @@ class GenerateName {
 
         for (var i = 0; i < x; i++){
 
-            temp = citiesPrefix[ranNum1[i]] + citiesSuffix[ranNum2[i]];
+            temp = citiesPrefix[this.ranNum1[i]] + citiesSuffix[this.ranNum2[i]];
             this.nameArr[i] =  temp;
         }
 
