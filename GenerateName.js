@@ -61,15 +61,28 @@ class GenerateName {
     getNames(seed) {
 
         var x = this.reg;
+        var y = countries.length;
         var temp;
+        var tempS = seed;
+        var ranNum;
+        let tempArr = countries;
 
         this.createRanNum(seed);
 
         for (var i = 0; i < x; i++){
 
-            temp = countries[this.ranNum1[i]];
+            Math.seedrandom(tempS);
+            ranNum = Math.floor((Math.random()*100) % y);
+            tempS=tempS*2;
+
+
+            temp = tempArr[ranNum];
             this.nameArr[i] =  temp;
 
+            
+            tempArr[ranNum] = '';
+            tempArr = tempArr.filter(tempArr => tempArr != '');
+            y--;
 
         }
 
@@ -77,24 +90,6 @@ class GenerateName {
 
     }
 
-    // creating random numbers for reg names
-    createRanNum(seed){
-
-        var x = this.reg;
-        var y = countries.length;
-        var tempS = seed
-
-        for (var i = 0; i < x; i++)
-        {
-            Math.seedrandom(tempS);
-            this.ranNum1[i] = Math.floor((Math.random()*100) % y);
-            tempS=tempS*2;
-        }
-
-        
-
-        
-    }
 
 
 }
@@ -104,38 +99,36 @@ class GenerateName {
     getNames(seed) {
 
         var x = this.reg;
+        var y = provinces.length;
         var temp;
+        var tempS = seed;
+        var ranNum;
+        let tempArr = provinces;
 
         this.createRanNum(seed);
 
         for (var i = 0; i < x; i++){
 
-            temp = provinces[this.ranNum1[i]];
-            this.nameArr[i] =  temp;
-        }
-
-        
-
-    }
-
-    // creating random numbers for reg names
-    createRanNum(seed){
-
-        var x = this.reg;
-        var y = provinces.length;
-        var tempS = seed;
-
-        for (var i = 0; i < x; i++)
-        {
             Math.seedrandom(tempS);
-            this.ranNum1[i] = Math.floor((Math.random()*100) % y);
+            ranNum = Math.floor((Math.random()*100) % y);
             tempS=tempS*2;
+
+
+            temp = tempArr[ranNum];
+            this.nameArr[i] =  temp;
+
+            
+            tempArr[ranNum] = '';
+            tempArr = tempArr.filter(tempArr => tempArr != '');
+            y--;
+
         }
 
         
 
-        
     }
+
+ 
 }
 
 
@@ -144,11 +137,43 @@ class GenerateName {
  class KingdomNames extends GenerateName {
 
     getNames(seed){
-
         var x = this.reg;
+        var y1 = citiesPrefix.length;
+        var y2 = citiesSuffix.length;
         var temp;
+        var tempS = seed;
+        var ranNum1;
+        var ranNum2;
+        let tempArr1 = citiesPrefix;
+        let tempArr2 = citiesSuffix;
 
         this.createRanNum(seed);
+
+        for (var i = 0; i < x; i++){
+
+            Math.seedrandom(tempS);
+            ranNum1 = Math.floor((Math.random()*100) % y1);
+            tempS=tempS*2;
+
+            Math.seedrandom(tempS);
+            ranNum2 = Math.floor((Math.random()*100) % y2);
+            tempS=tempS*2;
+
+
+            temp = tempArr1[ranNum1] + tempArr2[ranNum2];
+            this.nameArr[i] =  temp;
+
+            
+            tempArr1[ranNum1] = '';
+            tempArr1 = tempArr1.filter(tempArr1 => tempArr1 != '');
+            y1--;
+            
+
+            tempArr2[ranNum2] = '';
+            tempArr2 = tempArr2.filter(tempArr2 => tempArr2 != '');
+            y2--;
+
+        }
 
         for (var i = 0; i < x; i++){
 
@@ -159,38 +184,7 @@ class GenerateName {
         
     }
 
-    // creating random numbers for reg names
-    createRanNum(seed){
-
-        // for prfix
-        var x = this.reg;
-        var y = citiesPrefix.length;
-        var tempS = seed;
-
-        for (var i = 0; i < x; i++)
-        {
-            Math.seedrandom(tempS);
-            this.ranNum1[i] = Math.floor((Math.random()*100) % y);
-            tempS=tempS*2;
-        }
-
-        // for suffix
-
-        var x = this.reg;
-        var y = citiesSuffix.length;
-        var tempS = seed;
-
-        for (var i = 0; i < x; i++)
-        {
-            Math.seedrandom(tempS);
-            this.ranNum1[i] = Math.floor((Math.random()*100) % y);
-            tempS=tempS*2;
-        }
-
-        
-        
-    }
-        
+ 
 
 
  }
