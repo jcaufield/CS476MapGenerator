@@ -56,6 +56,13 @@ class SVGAdapter {
             .text(text);
     }
 
+    text (point, text){
+        this.g.append('text')
+        .attr('x', point.x)
+        .attr('y', point.y)
+        .text(text);
+    }
+
     clear(){
         this.g.selectAll("*").remove();
     }
