@@ -57,8 +57,11 @@ class SVGAdapter {
     }
 
     text (point, text){
+
+        let chars = text.length;
+
         this.g.append('text')
-        .attr('x', point.x)
+        .attr('x', point.x - (3*chars))
         .attr('y', point.y)
         .text(text);
     }

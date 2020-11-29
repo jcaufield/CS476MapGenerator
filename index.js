@@ -138,12 +138,12 @@ const regButton = document.getElementById('Reg');
 const bioButton = document.getElementById('Bio');
 const svgAPI = new SVGAdapter('WorldCreated');
 regButton.addEventListener('click', function() {
-  const data = d3.range(250).map(() => ({
+  const data = d3.range(150).map(() => ({
     x: Math.random(),
     y: Math.random()
   }));
 
-  renderWorld(data, 3, ["TarryNot", "Devonsland", "JimJiminy", "404Land_Not_Found", "Atol", "Xiphactinus"]); // 
+  renderWorld(data, 3, ["TarryNot", "Devonsland", "JimJiminy", "404Land_Not_Found"]); // , "Atol" , "Xiphactinus"
 });
 
 
