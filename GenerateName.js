@@ -2,8 +2,7 @@ class GenerateName {
     constructor(){
     this.reg = 0;
     this.nameArr = [];
-    this.ranNum1 = [];
-    this.ranNum2 = [];
+
 
     }
 
@@ -67,7 +66,7 @@ class GenerateName {
         var ranNum;
         let tempArr = countries;
 
-        this.createRanNum(seed);
+  
 
         for (var i = 0; i < x; i++){
 
@@ -105,7 +104,7 @@ class GenerateName {
         var ranNum;
         let tempArr = provinces;
 
-        this.createRanNum(seed);
+    
 
         for (var i = 0; i < x; i++){
 
@@ -147,7 +146,6 @@ class GenerateName {
         let tempArr1 = citiesPrefix;
         let tempArr2 = citiesSuffix;
 
-        this.createRanNum(seed);
 
         for (var i = 0; i < x; i++){
 
@@ -173,12 +171,6 @@ class GenerateName {
             tempArr2 = tempArr2.filter(tempArr2 => tempArr2 != '');
             y2--;
 
-        }
-
-        for (var i = 0; i < x; i++){
-
-            temp = citiesPrefix[this.ranNum1[i]] + citiesSuffix[this.ranNum2[i]];
-            this.nameArr[i] =  temp;
         }
 
         
