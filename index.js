@@ -101,8 +101,10 @@ button.addEventListener("click", function() {
   });
 
 const regButton = document.getElementById('Reg');
+let svgAPI = new SVGAdapter('WorldCreated');
 regButton.addEventListener('click', function() {
-  voronoiExample();
+  //voronoiExample();
+  svgAPI.cover('red');
 });
 
 
