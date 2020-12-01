@@ -17,8 +17,7 @@ class GenerateName {
         {
             this.changeRandom(tempReg);
         }
-
-        if(tempReg == "1"){
+        else if(tempReg == "1"){
             this.reg = 1;
         }
         else if(tempReg == "2"){
@@ -46,8 +45,14 @@ class GenerateName {
 // if the user chooses random for Regional then this will produce a random number between 1 - 6.
      changeRandom(){
         
-            var x = (Math.random() * 100) % 6;
-            this.reg = Math.round(x);
+            var x = (Math.random() * 10000);
+            x = Math.floor(x);
+            x = x % 6
+            if (x == 0)
+            {
+                x = 5;
+            }
+            this.reg = x;
  
     }
 
@@ -64,7 +69,7 @@ class GenerateName {
         var temp;
         var tempS = seed;
         var ranNum;
-        let tempArr = countries;
+        var tempArr = countries.slice();
 
   
 
@@ -102,7 +107,7 @@ class GenerateName {
         var temp;
         var tempS = seed;
         var ranNum;
-        let tempArr = provinces;
+        var tempArr = provinces.slice();
 
     
 
@@ -143,8 +148,8 @@ class GenerateName {
         var tempS = seed;
         var ranNum1;
         var ranNum2;
-        let tempArr1 = citiesPrefix;
-        let tempArr2 = citiesSuffix;
+        var tempArr1 = citiesPrefix.slice();
+        var tempArr2 = citiesSuffix.slice();
 
 
         for (var i = 0; i < x; i++){
