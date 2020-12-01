@@ -18,11 +18,11 @@ var dig2 = Math.floor(seed / 10000000)%10;
 var dig3 = Math.floor(seed / 1000000)%100%10;
 
 // checking the seed
-if(seed.toString().length == 9 && dig1 < 4 && dig1 > 0 && dig2 < 7 && dig2 > 0 && dig3 < 5){
+if(seed.toString().length == 9 && dig1 < 4 && dig1 > 0 && dig2 < 7 && dig2 > 1 && dig3 < 5){
 
   type = dig1;
-  water = dig2;
-  reg = dig3;
+  reg = dig2;
+  water = dig3;
 
   if(type == 1){
     let worldNam = new WorldNames();
@@ -173,7 +173,7 @@ else if(seed == null || seed == ""){
   }
   else{
 
-      output.innerText ="The seed you entered is incorrect, can only be a 9 digit number. make sure the first digit canonly be 1-3 and the second digit can only be 1-6 and the third digit needs to be between 0-4";
+      output.innerText ="The seed you entered is incorrect, can only be a 9 digit number. make sure the first digit canonly be 1-3 and the second digit can only be 2-6 and the third digit needs to be between 0-4";
       return;
   }
 
