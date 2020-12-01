@@ -68,6 +68,7 @@ h4 {
 
 .Name{
     height: 20px;
+    width: auto;
     padding-left: 0;
     float: left;
 }

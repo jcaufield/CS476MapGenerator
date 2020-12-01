@@ -1,6 +1,9 @@
 
 function renderWorld(data, waterType, names) {
 
+    console.log("data: ", data);
+    console.log("waterType: ", waterType);
+    console.log("names: ", names);
     //prep data
     const xScale = d3.scaleLinear().domain([0, 1]).range([0, svgAPI.width]);
     const yScale = d3.scaleLinear().domain([0, 1]).range([svgAPI.height, 0]);
@@ -103,7 +106,7 @@ function renderWorld(data, waterType, names) {
             .attr('style', `background-color:#787d79;`);
         entry.append('div')
             .attr('class', 'Name')
-            .text('Unaffiliated');
+            .text('Unexplored territory');
         
         legendNames.append('br');
     }
