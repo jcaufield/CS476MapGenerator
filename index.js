@@ -2,6 +2,7 @@ const button = document.getElementById("button");
 const output = document.getElementById("output");
 
 button.addEventListener("click", function() {
+  let start = new Date().getTime();
 
   // getting the values from html and checking if the user entered a seed number.
     var seed = document.getElementById('Seed').value;
@@ -201,23 +202,11 @@ else if(seed == null || seed == ""){
   renderWorld(points, water, arrNames);
  
   output.innerText= "This World's seed is: " + seed;
-    
 
-
-
-  });
-
-const regButton = document.getElementById('Reg');
-const bioButton = document.getElementById('Bio');
-const svgAPI = new SVGAdapter('WorldCreated');
-regButton.addEventListener('click', function() {
-  const data = d3.range(150).map(() => ({
-    x: Math.random(),
-    y: Math.random()
-  }));
-
-  renderWorld(data, 3, ["TarryNot", "Devonsland", "JimJiminy", "404Land_Not_Found", "Atol" , "Xiphactinus"]); // 
+  //console.log("Time taken: ", new Date() - start, "ms");
 });
+
+const svgAPI = new SVGAdapter('WorldCreated');
 
 
   

@@ -1,9 +1,6 @@
 
 function renderWorld(data, waterType, names) {
 
-    console.log("data: ", data);
-    console.log("waterType: ", waterType);
-    console.log("names: ", names);
     //prep data
     const xScale = d3.scaleLinear().domain([0, 1]).range([0, svgAPI.width]);
     const yScale = d3.scaleLinear().domain([0, 1]).range([svgAPI.height, 0]);
