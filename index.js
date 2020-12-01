@@ -5,37 +5,24 @@ button.addEventListener("click", function() {
 
   // getting the values from html and checking if the user entered a seed number.
     var seed = document.getElementById('Seed').value;
+    output.innerText = "";
    
   // checking if type of map is world, country, kingdom or random, if random pick one of the three
     var type = document.getElementById('type1').value
     var reg = document.getElementById('Regional1').value
     var water = document.getElementById('water1').value
+    var arrNames = []
 
-  
-// creating the class for generating names
-
-if(type == 1){
-  let worldNam = new WorldNames();
-  worldNam.getReg(reg);
-  reg = worldNam.reg;
-}
-else if(type == 2){
-  let countryNam = new CountryNames();
-  countryNam.getReg(reg);
-  reg = countryNam.reg;
-}
-else{
-  let kingdomNam = new KingdomNames();
-  kingdomNam.getReg(reg);
-  reg = kingdomNam.reg;
-}
+var dig1 = Math.floor(seed / 100000000);
+var dig2 = Math.floor(seed / 10000000)%10;
+var dig3 = Math.floor(seed / 1000000)%100%10;
 
 // checking the seed
-if(seed.toString().length == 9 && seed % 100000000 < 4 && seed % 100000000 > 0 && seed % 10000000 < 7 && seed % 10000000 > 0 && seed % 1000000 < 5){
+if(seed.toString().length == 9 && dig1 < 4 && dig1 > 0 && dig2 < 7 && dig2 > 0 && dig3 < 5){
 
-  type = seed % 100000000;
-  water = seed % 1000000;
-  reg = seed % 10000000;
+  type = dig1;
+  water = dig2;
+  reg = dig3;
 
   if(type == 1){
     let worldNam = new WorldNames();
@@ -67,9 +54,6 @@ if(seed.toString().length == 9 && seed % 100000000 < 4 && seed % 100000000 > 0 &
 
       }
   }
-
-
-
 }
 else if(seed == null || seed == ""){
 // creates the six digit 
@@ -87,11 +71,8 @@ else if(seed == null || seed == ""){
       seed = ts;
 
 //grabbing a world value if it was random
-      if(type == "Random"){
-        var x = Math.random();
-        x = x * 100;
-        x = Math.floor(x);
-        type = x % 3;
+      if(type == "kingdom"){
+         type = 3;
       }
 
        if(type == "world"){
@@ -103,15 +84,16 @@ else if(seed == null || seed == ""){
         type = 2;
       }
       else{
-        type = 3;
-      }
-
- //turning water into number value
-      if(water== "Random"){
         var x = Math.random();
         x = x * 100;
         x = Math.floor(x);
-        water = x % 4;
+        type = x % 3;
+        if(type == 0){type = 1;}
+      }
+
+ //turning water into number value
+      if(water== "alot"){
+        water = 3;
       }
 
       if(water == "none"){
@@ -126,7 +108,11 @@ else if(seed == null || seed == ""){
          water = 2;
       }
       else{
-        water = 3;
+        var x = Math.random();
+        x = x * 100;
+        x = Math.floor(x);
+        water = x % 4;
+        
       }
 
     // create the reg and generate names
@@ -148,14 +134,16 @@ else if(seed == null || seed == ""){
 
     //combining to create nine digit key
       var tempT, tempR, tempW;
-      tempT = type * 1000000000;
-      tempR = reg * 100000000;
-      tempW = water *10000000;
+      tempT = type * 100000000;
+      tempR = reg * 10000000;
+      tempW = water *1000000;
 
       seed = seed + tempT + tempR + tempW;
 
     //generate the names
       if(type == 1){
+        let worldNam = new WorldNames();
+        worldNam.getReg(reg.toString());
         worldNam.getNames(seed);
         for(var i=0;i<reg;i++)
         {
@@ -163,6 +151,8 @@ else if(seed == null || seed == ""){
         }
       }
       else if(type ==2){
+        let countryNam = new CountryNames();
+        countryNam.getReg(reg.toString());
         countryNam.getNames(seed);
         for(var i=0;i<reg;i++)
         {
@@ -170,6 +160,8 @@ else if(seed == null || seed == ""){
         }
       }
       else{
+        let kingdomNam = new KingdomNames();
+        kingdomNam.getReg(reg.toString());
         kingdomNam.getNames(seed);
         for(var i=0;i<reg;i++)
         {
@@ -182,7 +174,7 @@ else if(seed == null || seed == ""){
   else{
 
       output.innerText ="The seed you entered is incorrect, can only be a 9 digit number. make sure the first digit canonly be 1-3 and the second digit can only be 1-6 and the third digit needs to be between 0-4";
-
+      return;
   }
 
   // turn seed into point values
@@ -208,7 +200,7 @@ else if(seed == null || seed == ""){
 
   renderWorld(points, water, arrNames);
  
-  output.innertext=seed;
+  output.innerText=seed;
     
 
 
