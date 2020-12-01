@@ -17,9 +17,6 @@ class GenerateName {
         {
             this.changeRandom(tempReg);
         }
-        else if(tempReg == "1"){
-            this.reg = 1;
-        }
         else if(tempReg == "2"){
             this.reg = 2;
         }

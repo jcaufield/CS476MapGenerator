@@ -18,7 +18,7 @@ var dig2 = Math.floor(seed / 10000000)%10;
 var dig3 = Math.floor(seed / 1000000)%100%10;
 
 // checking the seed
-if(seed.toString().length == 9 && dig1 < 4 && dig1 > 0 && dig2 < 7 && dig2 > 0 && dig3 < 5){
+if(seed.toString().length == 9 && dig1 < 4 && dig1 > 0 && dig2 < 7 && dig2 > 1 && dig3 < 5){
 
   type = dig1;
   reg = dig2;
