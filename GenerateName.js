@@ -42,12 +42,12 @@ class GenerateName {
 
     }
 
-// if the user chooses random for Regional then this will produce a random number between 1 - 6.
+// if the user chooses random for Regional then this will produce a random number between 2 - 6.
      changeRandom(){
         
             var x = (Math.random() * 10000);
             x = Math.floor(x);
-            x = x % 6
+            x = (x % 5) + 2;
             if (x == 0)
             {
                 x = 5;
