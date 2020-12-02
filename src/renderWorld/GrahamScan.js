@@ -1,6 +1,7 @@
 /**
  * GrahamScan.js - Implements the Graham Scan Algorithm for obtaining the convex hull of a set of points.
  * - http://www.math.ucsd.edu/~ronspubs/72_10_convex_hull.pdf
+ * - pseudocode from: https://en.wikipedia.org/wiki/Graham_scan
  */
 
  function GrahamScan(points) {
@@ -34,34 +35,34 @@
     points = points.filter(point => point != '');
 
 
-//    sort points by polar angle with P0
+    //sort points by polar angle with P0
     points = points.sort(function(a,b) {
         let crossProd = cross(a,b,P0);
         if (crossProd < 0)
         {
             return 1;
         }
-        else if(crossProd > 0)
+        else if(crossProd >= 0)
         {
-        //
+            return -1;
         }
-        return -1;
     })
-
+    //return P0 to the list of points
     points.unshift(P0);
 
 
-//    for point in points:
+    //for point in points:
     for (const point of points)
     {
-//        while count stack > 1 and ccw(next_to_top(stack), top(stack), point) <= 0:
+        //while count stack > 1 and ccw(next_to_top(stack), top(stack), point) <= 0:
         while (stack.length > 1 && cross(stack[stack.length - 2], stack[stack.length - 1], point) <= 0)
         {
             //pop stack
             stack.pop();
         }
-//  push point to stack
+        //push point to stack
         stack.push(point);
     }
+    //stack contains the points on the convex hull of points, starting with P0
     return stack;
 }
