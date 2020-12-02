@@ -1,11 +1,11 @@
 /**
- * SVGAdapter.js
- * -------------
- * Adapter Class that handles drawing on an SVG with d3 methods.
+ * SVGAdapter.js - Adapter Class that handles drawing on an SVG with d3 methods.
  */
+
 
 class SVGAdapter {
     constructor (svgid) {
+        //object fields
         this.svg = d3.select(`#${svgid}`);
         this.g = this.svg.append('g');
         
@@ -14,6 +14,10 @@ class SVGAdapter {
         this.width = svgTemp.getAttribute('width');
     }
 
+    /**
+     * cover() - covers the svg tag in the supplied color
+     * @param {*} color - color string 
+     */
     cover (color){
 
         let pathString = `M0,0L0,${this.height}L${this.width},${this.height}L${this.width},0Z`;
@@ -23,6 +27,11 @@ class SVGAdapter {
             .attr('fill', color);
     }
 
+    /**
+     * path() - draws a cyclical svg path with the given points, filling the circumscribed area with the color
+     * @param {*} points - array of xyVal objects denoting the path
+     * @param {*} color - color string
+     */
     path (points, color){
         if(points.length < 3)
         {
@@ -44,6 +53,12 @@ class SVGAdapter {
             .attr('fill', color);
     }
     
+
+    /**
+     * pointText() - draws a labelled point in the svg tag
+     * @param {*} point - xyVal object
+     * @param {*} text - text for label
+     */
     pointText (point, text){
         this.g.append('circle')
             .attr('cx', point.x)
@@ -56,6 +71,11 @@ class SVGAdapter {
             .text(text);
     }
 
+    /**
+     * text() - places texts in the svg tag
+     * @param {*} point 
+     * @param {*} text 
+     */
     text (point, text){
 
         let chars = text.length;
@@ -66,6 +86,9 @@ class SVGAdapter {
         .text(text);
     }
 
+    /**
+     * clear() - empties the svg tag
+     */
     clear(){
         this.g.selectAll("*").remove();
     }
