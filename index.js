@@ -76,11 +76,11 @@ else if(seed == null || seed == ""){
          type = 3;
       }
 
-       if(type == "world"){
+      else if(type == "world"){
 
         type = 1;
       }  
-       else if(type == "country"){
+      else if(type == "country"){
 
         type = 2;
       }
@@ -88,7 +88,7 @@ else if(seed == null || seed == ""){
         var x = Math.random();
         x = x * 100;
         x = Math.floor(x);
-        type = x % 3;
+        type = (x % 3) + 1;
         if(type == 0){type = 1;}
       }
 
@@ -115,7 +115,6 @@ else if(seed == null || seed == ""){
         water = x % 4;
         
       }
-
     // create the reg and generate names
       if(type == 1){
         let worldNam = new WorldNames();
@@ -132,6 +131,8 @@ else if(seed == null || seed == ""){
         kingdomNam.getReg(reg);
         reg = kingdomNam.reg;
       }
+
+
 
     //combining to create nine digit key
       var tempT, tempR, tempW;
