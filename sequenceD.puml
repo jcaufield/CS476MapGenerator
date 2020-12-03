@@ -1,0 +1,24 @@
+@startuml
+
+participant index
+participant GenerateName
+participant WorldNames
+collections counties
+
+index -> WorldNames : let worldNam = new WorldNames
+WorldNames -> GenerateName : create
+GenerateName -> WorldNames
+WorldNames -> index
+index -> WorldNames : worldNam.getReg()
+WorldNames -> GenerateName : worldNam.getReg()
+GenerateName -> WorldNames 
+WorldNames -> index
+index -> WorldNames : worldNam.getNames()
+WorldNames -> countries : var tempArr = countries.slice()
+counties -> WorldNames
+WorldNames -> GenerateNames : this.grabNames(this.reg,y,seed,tempArr);
+GenerateName -> WorldNames 
+WorldNames -> index
+
+
+@enduml
