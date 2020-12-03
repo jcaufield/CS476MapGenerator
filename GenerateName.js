@@ -53,23 +53,9 @@ class GenerateName {
  
     }
 
-
-    
-}
-
- class WorldNames extends GenerateName {
-
-    getNames(seed) {
-
-        var x = this.reg;
-        var y = countries.length;
+    grabNames(x,y,tempS,tempArr){
         var temp;
-        var tempS = seed;
         var ranNum;
-        var tempArr = countries.slice();
-
-  
-
         for (var i = 0; i < x; i++){
 
             Math.seedrandom(tempS);
@@ -86,7 +72,24 @@ class GenerateName {
             y--;
 
         }
+    }
 
+
+    
+}
+
+ class WorldNames extends GenerateName {
+
+    getNames(seed) {
+
+        var x = this.reg;
+        var y = countries.length;
+        var tempS = seed;
+        var tempArr = countries.slice();
+
+  
+        this.grabNames(x,y,tempS,tempArr);
+        
         
 
     }
@@ -101,34 +104,12 @@ class GenerateName {
 
         var x = this.reg;
         var y = provinces.length;
-        var temp;
         var tempS = seed;
-        var ranNum;
         var tempArr = provinces.slice();
 
     
 
-        for (var i = 0; i < x; i++){
-
-            Math.seedrandom(tempS);
-            ranNum = Math.floor((Math.random()*1000)) % y;
-            tempS=tempS*2;
-
-
-            temp = tempArr[ranNum];
-            this.nameArr[i] = temp;
-
-            
-            tempArr[ranNum] = '';
-            tempArr = tempArr.filter(name => name != '');
-            y--;
-
-        }
-
-        
-
-    }
-
+        this.grabNames(x,y,tempS,tempArr);
  
 }
 
