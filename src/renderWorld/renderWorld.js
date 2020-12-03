@@ -1,7 +1,16 @@
+/**
+ * renderWorld.js - This file contains the main rendering function.
+ */
 
+/**
+ * 
+ * @param {*} data - array of xyVal objects, holding the points retreived from the seed
+ * @param {*} waterType - int, 0 <= waterType <= 3, holding the type of water level needed for the world
+ * @param {*} names - array of strings, giving the names of regions to be placed in the world.
+ */
 function renderWorld(data, waterType, names) {
 
-    //prep data
+    //scale data to the dimensions of the svg canvas
     const xScale = d3.scaleLinear().domain([0, 1]).range([0, svgAPI.width]);
     const yScale = d3.scaleLinear().domain([0, 1]).range([svgAPI.height, 0]);
     let points = data.map((d) => {
@@ -17,16 +26,19 @@ function renderWorld(data, waterType, names) {
         points = points.slice(0, pointCount[1]);
     }
 
-    //get Legend Ref
+    //get Legend tag ref
     const legendNames = d3.select('#regionNames');
     legendNames.selectAll("*").remove();
 
     //initialize voronoi diagram
-    const delauney = d3.Delaunay.from(points, d => d.x, d => d.y); // .from(points, fx, fy)
-    const voronoi = delauney.voronoi([0, 0, svgAPI.width, svgAPI.height]); // .voronoi([xmin, ymin, xmax, ymax])
+    const delauney = d3.Delaunay.from(points, d => d.x, d => d.y); 
+    const voronoi = delauney.voronoi([0, 0, svgAPI.width, svgAPI.height]);
+
+    //get an iterable of voronoi cells
     const cells = voronoi.cellPolygons();
     let formattedCells = [];
 
+    //reformat output from cellPolygons()
     for(const cell of cells)
     {
         let formattedPolygon = [];
@@ -41,7 +53,7 @@ function renderWorld(data, waterType, names) {
     //clean output
     svgAPI.clear();
 
-    //set un-affiliated territory color
+    //set non-territory color
     if (waterType > 0){
         svgAPI.cover('aqua');
     }
@@ -78,7 +90,7 @@ function renderWorld(data, waterType, names) {
         //fill in the area
         svgAPI.path(hullPath, colors[i]);
 
-        //place name in legend
+        //place region name in legend
         const entry = legendNames.append('div')
             .attr('class', 'Entry');
 
@@ -92,7 +104,7 @@ function renderWorld(data, waterType, names) {
         legendNames.append('br');
     }
 
-    if (waterType == 0)
+    if (waterType == 0) //no water
     {
         //place last line in legend
         const entry = legendNames.append('div')
