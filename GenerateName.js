@@ -82,13 +82,12 @@ class GenerateName {
 
     getNames(seed) {
 
-        var x = this.reg;
+
         var y = countries.length;
-        var tempS = seed;
         var tempArr = countries.slice();
 
   
-        this.grabNames(x,y,tempS,tempArr);
+        this.grabNames(this.reg,y,seed,tempArr);
         
         
 
@@ -102,14 +101,13 @@ class GenerateName {
 
     getNames(seed) {
 
-        var x = this.reg;
+
         var y = provinces.length;
-        var tempS = seed;
         var tempArr = provinces.slice();
 
     
 
-        this.grabNames(x,y,tempS,tempArr);
+        this.grabNames(this.reg,y,seed,tempArr);
     }
  
 }
