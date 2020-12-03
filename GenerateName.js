@@ -110,6 +110,7 @@ class GenerateName {
     
 
         this.grabNames(x,y,tempS,tempArr);
+    }
  
 }
 
