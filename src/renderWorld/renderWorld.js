@@ -1,6 +1,8 @@
 /**
- * renderWorld.js - This file contains the main rendering function.
+ * renderWorld.js - This file contains the main rendering function and the assignment of the SVGCrayon
  */
+
+const svgAPI = new SVGCrayon('WorldCreated');
 
 /**
  * 

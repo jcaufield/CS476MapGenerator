@@ -1,9 +1,9 @@
 /**
- * SVGAdapter.js - Adapter Class that handles drawing on an SVG with d3 methods.
+ * SVGCrayon.js - Adapter Class that handles drawing on an SVG with d3 methods.
  */
 
 
-class SVGAdapter {
+class SVGCrayon {
     constructor (svgid) {
         //object fields
         this.svg = d3.select(`#${svgid}`);

@@ -207,7 +207,5 @@ else if(seed == null || seed == ""){
   //console.log("Time taken: ", new Date() - start, "ms");
 });
 
-const svgAPI = new SVGAdapter('WorldCreated');
-
 
   
