@@ -189,10 +189,12 @@ else if(seed == null || seed == ""){
   for(var i = 0; i < 500; i++)
     {
       points[i] = new xyVal();
-      temp5 = Math.seedrandom(tempSeed);
+      Math.seedrandom(tempSeed);
+      temp5 = Math.random();
       points[i].addx(temp5);
       tempSeed++;
-      temp5 = Math.seedrandom(tempSeed);
+      Math.seedrandom(tempSeed);
+      temp5 = Math.random();
       points[i].addy(temp5);
       tempSeed++;
     }
